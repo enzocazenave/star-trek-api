@@ -5,6 +5,7 @@ import cors from 'cors'
 
 import planetsRoutes from './routes/planets.routes.js'
 import empiresRoutes from './routes/empires.routes.js'
+import fleetsRoutes from './routes/fleets.routes.js'
 
 configDotenv()
 
@@ -16,6 +17,7 @@ expressServer.use(logger('dev'))
 
 expressServer.use('/api', planetsRoutes)
 expressServer.use('/api', empiresRoutes)
+expressServer.use('/api', fleetsRoutes)
 
 const { EXPRESS_SERVER_PORT } = process.env
 
