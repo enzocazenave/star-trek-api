@@ -1,5 +1,8 @@
 import { Router } from 'express'
+import { getEmpires } from '../controllers/empires.js'
 
 const router = Router()
 
-export default router
+router.get('/empires', [], getEmpires)
+
+export default router 
