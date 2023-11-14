@@ -5,6 +5,6 @@ const router = Router()
 
 router.get('/planets', [], getPlanets)
 
-router.put('/planets/mountain', [], updatePlanetMountain)
+router.put('/planets/:planetName/mountain', [], updatePlanetMountain)
 
 export default router
