@@ -1,4 +1,4 @@
-import { response } from "express";
+import { response } from 'express';
 
 export default (res = response, statusCode, data, error) => {
   if (error) console.error(error)

@@ -19,8 +19,6 @@ expressServer.use('/api', planetsRoutes)
 expressServer.use('/api', empiresRoutes)
 expressServer.use('/api', fleetsRoutes)
 
-
-
 const { EXPRESS_SERVER_PORT } = process.env
 
 expressServer.listen(EXPRESS_SERVER_PORT, () => {

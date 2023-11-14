@@ -8,7 +8,7 @@ import serverErrors from '../errors/server.js'
 const getPlanets = async(req, res = response) => {
   try {
     const connection = await getConnection()
-    const result = await connection.request().query(planetsRequests.getPlanetas)
+    const result = await connection.request().query(planetsRequests.getPlanets)
   
     sendResponse(res, 200, result.recordset, null)
   } catch(error) {

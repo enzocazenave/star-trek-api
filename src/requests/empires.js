@@ -1,3 +1,3 @@
 export default {
-  getImperios: 'SELECT * FROM imperios'
+  getEmpires: 'SELECT * FROM imperios'
 } 
