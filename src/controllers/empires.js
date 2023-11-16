@@ -18,6 +18,23 @@ const getEmpires = async(req, res = response) => {
   }
 }
 
+const getEmpiresName = async(req, res = response) => {
+  const {id_imperio} = 1
+  try {
+    const connection = await getConnection()
+    const result = await connection
+      .request()
+      .input('id_imperio',id_imperio)
+      .query(empiresRequests.getImperiosNombre)
+    sendResponse(res, 200, result.recordset, null)
+  } catch (error){
+    console.error(error)
+    sendResponse(res, 500, null, empiresErrors.EMPIRE_NOT_FOUND)
+  }
+}
+
+
 export {
-  getEmpires    
+  getEmpires,
+  getEmpiresName    
 }
