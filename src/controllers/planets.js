@@ -18,7 +18,8 @@ const getPlanets = async(req, res = response) => {
 }
 
 const updatePlanetMountain = async(req, res = response) => {
-  const { planetName, mountainHeight } = req.body
+  const { mountainHeight } = req.body
+  const { planetName } = req.params
 
   try {
     const connection = await getConnection()
