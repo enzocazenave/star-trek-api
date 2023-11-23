@@ -10,10 +10,10 @@ const getPlanets = async(req, res = response) => {
     const connection = await getConnection()
     const result = await connection.request().query(planetsRequests.getPlanets)
   
-    sendResponse(res, 200, result.recordset, null)
+    sendResponse(res, 200, result.recordset, { query: planetsRequests.getPlanets }, null)
   } catch(error) {
     console.error(error)
-    sendResponse(res, 500, null, serverErrors.INTERNAL_SERVER_ERROR)
+    sendResponse(res, 500, null, {}, serverErrors.INTERNAL_SERVER_ERROR)
   }
 }
 
@@ -29,11 +29,11 @@ const updatePlanetMountain = async(req, res = response) => {
       .input('AlturaMontania', mountainHeight)
       .query(planetsRequests.updatePlanetMountain)
 
-    if (result.rowsAffected > 0) return sendResponse(res, 201, null, null)
-    sendResponse(res, 404, null, planetsErrors.PLANET_NOT_FOUND)
+    if (result.rowsAffected > 0) return sendResponse(res, 201, null, { query: planetsRequests.updatePlanetMountain, queryData: [planetName, mountainHeight] }, null)
+    sendResponse(res, 404, null, { query: planetsRequests.updatePlanetMountain }, planetsErrors.PLANET_NOT_FOUND)
   } catch(error) {
     console.error(error)
-    sendResponse(res, 500, null, serverErrors.INTERNAL_SERVER_ERROR)
+    sendResponse(res, 500, null, {}, serverErrors.INTERNAL_SERVER_ERROR)
   }
 }
 
